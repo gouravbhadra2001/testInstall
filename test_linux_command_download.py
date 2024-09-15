@@ -3,7 +3,7 @@ import subprocess
 
 app = Flask(__name__)
 
-@app.route('/install', methods=['GET'])
+@app.route('/install', methods=['POST'])
 def install_ollama():
     try:
         # Run the command to install Ollama
@@ -14,4 +14,4 @@ def install_ollama():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
